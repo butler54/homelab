@@ -1,11 +1,11 @@
 ---
 global:
-  pattern: multicloud-gitops
-
+  pattern: homelab
   options:
     useCSV: false
     syncPolicy: Automatic
     installPlanApproval: Automatic
 
+# Leaving as hub as there are lots of presumptions
 main:
   clusterGroupName: hub
