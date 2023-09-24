@@ -8,6 +8,9 @@ metadata:
 spec:
   replicas: 1
   revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      deploymentconfig: octoprint
   template:
     metadata:
       creationTimestamp: null
