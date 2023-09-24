@@ -2,8 +2,9 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: octoprint
-    labels:
-      app: octoprint
+  labels:
+    app: octoprint
+  namespace: octoprint
 spec:
   accessModes:
     - ReadWriteOnce
