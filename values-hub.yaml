@@ -19,6 +19,8 @@ clusterGroup:
   projects:
     - hub
     - octoprint
+    - config-demo
+    - hello-world
   applications:
     acm:
       name: acm
