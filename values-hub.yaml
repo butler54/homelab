@@ -47,7 +47,7 @@ clusterGroup:
       name:  octoprint
       namespace: octoprint
       project: octoprint
-      path: all/octoprint
+      path: charts/all/octoprint
 
 
   imperative:
