@@ -1,0 +1,13 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: octoprint
+  namespace: octoprint
+spec:
+  lookupPolicy:
+    local: false # This ensures the image is pulled from an external registry
+  tags:
+    - name: latest
+      from:
+        kind: DockerImage
+        name: docker.io/octoprint/octoprint:latest # Replace with your external image URL

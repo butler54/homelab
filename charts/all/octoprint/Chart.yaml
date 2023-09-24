@@ -1,0 +1,6 @@
+apiVersion: v2
+description: A chart to build and deploy octoprint on OpenShift
+keywords:
+- pattern
+name: octoprint
+version: 0.0.1
