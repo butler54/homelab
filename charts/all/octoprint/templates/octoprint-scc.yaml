@@ -18,6 +18,7 @@ volumes:
   - emptyDir
   - persistentVolumeClaim
   - projected
+  - hostPath
   - secret
 allowHostDirVolumePlugin: true
 allowHostIPC: false
