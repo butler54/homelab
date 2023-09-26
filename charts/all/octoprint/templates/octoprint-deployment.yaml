@@ -26,7 +26,7 @@ spec:
           - name: ENABLE_MJPG_STREAMER
             value: 'false'
         securityContextConstraints:  # Apply the SCC here
-          name: hostaccess
+          name: pod-access-devices-scc
         resources:
           requests:
             memory: 2000Mi

@@ -1,9 +1,34 @@
-kind: SecurityContextConstraints
 apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
 metadata:
-  name: hostdevice-scc
-namespace: octoprint
-allowHostDirVolumePlugin: true
+  name: pod-access-devices-scc
+allowPrivilegeEscalation: false
+defaultAddCapabilities: []
+requiredDropCapabilities:
+  - ALL
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: MustRunAs
+seccompProfiles:
+  - docker/default
+volumes:
+  - configMap
+  - downwardAPI
+  - emptyDir
+  - persistentVolumeClaim
+  - projected
+  - secret
+allowHostDirVolumePlugin: false
 allowHostIPC: false
 allowHostNetwork: false
 allowHostPID: false
+allowHostPorts: false
+allowPrivilegedContainer: false
+allowedCapabilities: []
+priority: <adjust_priority>
+readOnlyRootFilesystem: false
+supplementalGroups:
+  type: RunAsAny
+users:
+  - system:serviceaccount:homelab-hub:hub-gitops-argocd-application-controller
