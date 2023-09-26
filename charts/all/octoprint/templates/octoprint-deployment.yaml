@@ -25,8 +25,8 @@ spec:
         env:
           - name: ENABLE_MJPG_STREAMER
             value: 'false'
-        securityContext:
-          privileged: true
+        securityContextConstraints:  # Apply the SCC here
+          name: hostaccess
         resources:
           requests:
             memory: 2000Mi
