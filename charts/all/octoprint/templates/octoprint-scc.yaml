@@ -26,7 +26,6 @@ allowHostPID: false
 allowHostPorts: false
 allowPrivilegedContainer: false
 allowedCapabilities: []
-priority: <adjust_priority>
 readOnlyRootFilesystem: false
 supplementalGroups:
   type: RunAsAny
