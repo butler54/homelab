@@ -24,6 +24,8 @@ spec:
       containers:
       - name: octoprint
         image: octoprint/octoprint:latest
+        ports:
+        - containerPort: 80
         env:
           - name: ENABLE_MJPG_STREAMER
             value: 'false'
