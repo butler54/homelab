@@ -32,3 +32,4 @@ supplementalGroups:
   type: RunAsAny
 users:
   - system:serviceaccount:homelab-hub:hub-gitops-argocd-application-controller
+  - system:serviceaccount:kube-system:replicaset-controller
