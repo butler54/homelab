@@ -7,7 +7,7 @@ spec:
   lookupPolicy:
     local: false # This ensures the image is pulled from an external registry
   tags:
-    - name: latest
+    - name: minimal
       from:
         kind: DockerImage
-        name: docker.io/octoprint/octoprint:latest # Replace with your external image URL
+        name: docker.io/octoprint/octoprint:minimal # Replace with your external image URL
