@@ -5,6 +5,8 @@ metadata:
     app: octoprint
   name: octoprint
 spec:
+  tls:
+    termination: edge
   port:
     targetPort: 80-tcp
   to:
