@@ -29,6 +29,9 @@ spec:
         env:
           - name: ENABLE_MJPG_STREAMER
             value: 'false'
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0
         securityContextConstraints:  # Apply the SCC here
           name: pod-access-devices-scc
         resources:
