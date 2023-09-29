@@ -36,16 +36,16 @@ spec:
             memory: 3500Mi
             cpu: 2000m
         volumeMounts:
-          - mountPath: /octoprint
-            name: octoprint
-            readOnly: false
+          # - mountPath: /octoprint
+          #   name: octoprint
+          #   readOnly: false
           - mountPath: /dev/ttyACM0
             name: ttyacm0
             readOnly: false
       volumes:
-      - name: octoprint
-        persistentVolumeClaim:
-          claimName: octoprint
+      # - name: octoprint
+      #   persistentVolumeClaim:
+      #     claimName: octoprint
       - name: ttyacm0
         hostPath:
           path: /dev/ttyACM0
