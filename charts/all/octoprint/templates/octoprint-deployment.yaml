@@ -10,13 +10,15 @@ spec:
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      deploymentconfig: octoprint
+      app.kubernetes.io/component: octoprint
+      app.kubernetes.io/part-of: octoprint
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: octoprint
-        deploymentconfig: octoprint
+        app.kubernetes.io/name: octoprint
+        app.kubernetes.io/instance: octoprint
+        app.kubernetes.io/component: octoprint
+        app.kubernetes.io/part-of: octoprint
       name: octoprint
     spec:
       containers:

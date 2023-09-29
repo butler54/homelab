@@ -3,7 +3,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: octoprint
   labels:
-    app: octoprint
+    app.kubernetes.io/name: octoprint
+    app.kubernetes.io/instance: octoprint
+    app.kubernetes.io/component: octoprint
+    app.kubernetes.io/part-of: octoprint
   namespace: octoprint
 spec:
   accessModes:
