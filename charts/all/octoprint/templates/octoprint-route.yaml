@@ -12,7 +12,7 @@ spec:
     targetPort: https
   tls:
     insecureEdgeTerminationPolicy: Redirect
-    termination: reencrypt
+    termination: edge
   to:
     kind: Service
     name: octoprint-svc
