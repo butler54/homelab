@@ -16,9 +16,9 @@ volumes:
   - configMap
   - downwardAPI
   - emptyDir
+  - hostPath
   - persistentVolumeClaim
   - projected
-  - hostPath
   - secret
 allowHostDirVolumePlugin: true
 allowHostIPC: false

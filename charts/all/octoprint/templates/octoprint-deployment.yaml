@@ -31,10 +31,10 @@ spec:
         resources:
           requests:
             memory: 2000Mi
-            cpu: 1000m
+            cpu: 1
           limits:
             memory: 3500Mi
-            cpu: 2000m
+            cpu: 2
         volumeMounts:
           # - mountPath: /octoprint
           #   name: octoprint
