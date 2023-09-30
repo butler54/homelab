@@ -13,9 +13,6 @@ metadata:
 spec:
   selector:
     app.kubernetes.io/name: octoprint
-    app.kubernetes.io/instance: octoprint
-    app.kubernetes.io/component: octoprint
-    app.kubernetes.io/part-of: octoprint
   ports:
     - protocol: TCP
       name: http

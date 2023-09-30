@@ -8,10 +8,11 @@ metadata:
     app.kubernetes.io/part-of: octoprint
   name: octoprint
 spec:
-  tls:
-    termination: edge
   port:
-    targetPort: 80-tcp
+    targetPort: https
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: reencrypt
   to:
     kind: Service
     name: octoprint-svc
