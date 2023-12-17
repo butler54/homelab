@@ -1,0 +1,8 @@
+
+secretStore:
+  name: vault-backend
+  kind: ClusterSecretStore
+
+
+tailscale:
+  key: 'secret/data/global/tailscale'

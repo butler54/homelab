@@ -3,11 +3,13 @@ clusterGroup:
   isHubCluster: true
 
   namespaces:
-    - open-cluster-management
-    - vault
-    - golang-external-secrets
-    - octoprint
-    - homeassistant
+  - open-cluster-management
+  - vault
+  - golang-external-secrets
+  - octoprint
+  - homeassistant
+  - cert-manager
+  - tailscale
 
   subscriptions:
     acm:
@@ -15,12 +17,16 @@ clusterGroup:
       namespace: open-cluster-management
       channel: release-2.8
       #csv: advanced-cluster-management.v2.6.1
+    certmanager:
+      name: cert-manager
+      namespace: cert-manager
+      channel: stable
 
   projects:
-    - hub
-    - octoprint
-    - config-demo
-    - hello-world
+  - hub
+  - octoprint
+  - config-demo
+  - hello-world
   applications:
     acm:
       name: acm
@@ -31,7 +37,7 @@ clusterGroup:
       - group: internal.open-cluster-management.io
         kind: ManagedClusterInfo
         jsonPointers:
-          - /spec/loggingCA
+        - /spec/loggingCA
 
     vault:
       name: vault
@@ -46,10 +52,16 @@ clusterGroup:
       path: common/golang-external-secrets
 
     octoprint:
-      name:  octoprint
+      name: octoprint
       namespace: octoprint
       project: octoprint
-      path: charts/all/octoprint
+      path: charts/all/octoprin
+
+    tailscale:
+      name: tailscale
+      namespace: tailscale
+      project: hub
+      path: charts/all/tailscale
 
 
   imperative:
