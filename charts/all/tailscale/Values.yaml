@@ -1,5 +1,7 @@
+
+
 secretStore:
-  name: vault-backend
+  name: 'vault-backend'
   kind: ClusterSecretStore
 
 
