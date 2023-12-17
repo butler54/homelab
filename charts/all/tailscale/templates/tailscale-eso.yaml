@@ -6,12 +6,11 @@ metadata:
 spec:
   refreshInterval: 15s
   secretStoreRef:
-    name: {? {.Values.secretStore.name: ''} : ''}
-    kind: {? {.Values.secretStore.kind: ''} : ''}
-  target:
+    name: {{ .Values.secretStore.name }}
+    kind: {{ .Values.secretStore.kind }}
     name: operator-oauth
     template:
       type: Opaque
   dataFrom:
   - extract:
-      key: {? {.Values.tailscale.key: ''} : ''}
+      key: {{ .Values.tailscale.key }}
