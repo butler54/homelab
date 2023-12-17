@@ -1,17 +1,17 @@
-apiVersion: "external-secrets.io/v1beta1"
-kind: ExternalSecret
-metadata:
-  name: tailscale-oauth-eso
-  namespace: tailscale
-spec:
-  refreshInterval: 15s
-  secretStoreRef:
-    name: {{ .Values.secretStore.name }}
-    kind: {{ .Values.secretStore.kind }}
-  target:
-    name: operator-oauth
-    template:
-      type: Opaque
-  dataFrom:
-  - extract:
-      key: {{ .Values.tailscale.key }}
+# apiVersion: "external-secrets.io/v1beta1"
+# kind: ExternalSecret
+# metadata:
+#   name: tailscale-oauth-eso
+#   namespace: tailscale
+# spec:
+#   refreshInterval: 15s
+#   secretStoreRef:
+#     name: {{ .Values.secretStore.name }}
+#     kind: {{ .Values.secretStore.kind }}
+#   target:
+#     name: operator-oauth
+#     template:
+#       type: Opaque
+#   dataFrom:
+#   - extract:
+#       key: {{ .Values.tailscale.key }}
