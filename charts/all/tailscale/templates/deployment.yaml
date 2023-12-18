@@ -22,7 +22,7 @@ spec:
         - name: OPERATOR_SECRET
           value: operator
         - name: OPERATOR_LOGGING
-          value: info
+          value: debug
         - name: OPERATOR_NAMESPACE
           valueFrom:
             fieldRef:
@@ -34,19 +34,19 @@ spec:
         - name: CLIENT_SECRET_FILE
           value: /oauth/client_secret
         - name: PROXY_IMAGE
-          value: tailscale/tailscale:unstable
+          value: tailscale/tailscale:stable
         - name: PROXY_TAGS
           value: tag:k8s
         - name: APISERVER_PROXY
           value: "false"
         - name: PROXY_FIREWALL_MODE
           value: auto
-        image: tailscale/k8s-operator:unstable
+        image: tailscale/k8s-operator:stable
         imagePullPolicy: Always
         name: operator
         securityContext:
           readOnlyRootFilesystem: false
-          
+
         volumeMounts:
         - mountPath: /oauth
           name: oauth
