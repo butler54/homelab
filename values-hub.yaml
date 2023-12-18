@@ -10,7 +10,7 @@ clusterGroup:
   - homeassistant
   - cert-manager
   - tailscale
-
+  - hello-world
   subscriptions:
     acm:
       name: advanced-cluster-management
@@ -55,13 +55,18 @@ clusterGroup:
       name: octoprint
       namespace: octoprint
       project: octoprint
-      path: charts/all/octoprin
+      path: charts/all/octoprint
 
     tailscale:
       name: tailscale
       namespace: tailscale
       project: hub
       path: charts/all/tailscale
+    hello-world:
+      name: hello-world
+      namespace: hello-world
+      project: hello-world
+      path: charts/all/hello-world
 
 
   imperative:
