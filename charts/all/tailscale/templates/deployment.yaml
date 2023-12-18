@@ -46,7 +46,8 @@ spec:
         name: operator
         securityContext:
           readOnlyRootFilesystem: false
-
+          runAsNonRoot: false
+          runAsUser: 0
         volumeMounts:
         - mountPath: /oauth
           name: oauth
