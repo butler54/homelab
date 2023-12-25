@@ -1,5 +1,0 @@
-apiVersion: v2
-description: Configure tailscale using the static manifests so that an eso can be used.
-keywords:
-name: tailscale-deploy
-version: 0.0.1

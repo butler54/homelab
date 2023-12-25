@@ -57,11 +57,6 @@ clusterGroup:
       project: octoprint
       path: charts/all/octoprint
 
-    tailscale:
-      name: tailscale
-      namespace: tailscale
-      project: hub
-      path: charts/all/tailscale
     hello-world:
       name: hello-world
       namespace: hello-world
