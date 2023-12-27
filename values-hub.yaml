@@ -1,3 +1,11 @@
+
+letsencrypt:
+  region: ''
+  server: https://acme-v02.api.letsencrypt.org/directory
+  # staging URL
+  # server: https://acme-staging-v02.api.letsencrypt.org/directory
+  email: chris@thebutlers.me
+
 clusterGroup:
   name: hub
   isHubCluster: true
@@ -8,8 +16,7 @@ clusterGroup:
   - golang-external-secrets
   - octoprint
   - homeassistant
-  - cert-manager
-  - tailscale
+  - letsencrypt
   - hello-world
   subscriptions:
     acm:
@@ -63,7 +70,11 @@ clusterGroup:
       project: hello-world
       path: charts/all/hello-world
 
-
+    letsencrypt:
+      name: letsencrypt
+      namespace: letsencrypt
+      project: default
+      path: charts/all/letsencrypt
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule

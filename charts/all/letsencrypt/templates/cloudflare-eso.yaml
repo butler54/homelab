@@ -1,0 +1,19 @@
+---
+apiVersion: "external-secrets.io/v1beta1"
+kind: ExternalSecret
+metadata:
+  name: cloudflare-api-token-secret-eso
+  namespace: cert-manager
+spec:
+  refreshInterval: 15s
+  secretStoreRef:
+    name: {{ .Values.secretStore.name }}
+    kind: {{ .Values.secretStore.kind }}
+  target:
+    name:  cloudflare-api-token-secret
+    namespace: cert-manager
+    template:
+      type: Opaque
+  dataFrom:
+  - extract:
+      key: {{ .Values.configdemosecret.key }}
