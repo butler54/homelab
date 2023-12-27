@@ -59,3 +59,7 @@ letsencrypt:
 
   ## @param letsencrypt.certmanagerChannel String the channel to install cert-manager from (Defaults to "stable-v1")
   certmanagerChannel: "stable-v1"
+
+secretStore:
+  name: vault-backend
+  kind: ClusterSecretStore
