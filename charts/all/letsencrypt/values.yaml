@@ -19,6 +19,7 @@ letsencrypt:
   ## @param letsencrypt.enabled Boolean to enable this feature and request a wildcard cert for the default Infress (*.apps.domain) (defaults to True)
   aws: true
   cloudflare: true
+  cloudflareSecretKey: secret/data/global/cloudflare
   ## @param letsencrypt.api_endpoint Boolean to enable letsencrypt certs on the API endpoint too (defaults to True)
   api_endpoint: true
 
@@ -39,7 +40,7 @@ letsencrypt:
   # These are only for metadata in the certificates
   ## @param letsencrypt.organizations List of organization names to be put in a certificate (Defaults to [hybrid-cloud-patterns.io])
   organizations:
-  - hybrid-cloud-patterns.io
+  - thebutlers.me
   ## @param letsencrypt.usages List of certificate uses. See API cert-manager.io/v1.KeyUsage (Defaults to [server auth])
   usages:
   - server auth
