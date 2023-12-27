@@ -38,10 +38,10 @@ letsencrypt:
   # These are only for metadata in the certificates
   ## @param letsencrypt.organizations List of organization names to be put in a certificate (Defaults to [hybrid-cloud-patterns.io])
   organizations:
-    - hybrid-cloud-patterns.io
+  - hybrid-cloud-patterns.io
   ## @param letsencrypt.usages List of certificate uses. See API cert-manager.io/v1.KeyUsage (Defaults to [server auth])
   usages:
-    - server auth
+  - server auth
 
   ## @param letsencrypt.duration Duration of the requested letsencrypt certificates (Defaults to 168h0m0s)
   duration: "168h0m0s"
@@ -53,8 +53,8 @@ letsencrypt:
   # https://cert-manager.io/docs/configuration/acme/dns01/#setting-nameservers-for-dns01-self-check
   ## @param letsencrypt.nameservers List of DNS server (ip:port strings) to be used when doing DNS01 challenges (Defaults to [8.8.8.8:53, 1.1.1.1:53])
   nameservers:
-    - 8.8.8.8:53
-    - 1.1.1.1:53
+  - 8.8.8.8:53
+  - 1.1.1.1:53
 
   ## @param letsencrypt.certmanagerChannel String the channel to install cert-manager from (Defaults to "stable-v1")
   certmanagerChannel: "stable-v1"

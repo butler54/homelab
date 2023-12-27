@@ -17,6 +17,8 @@ clusterGroup:
   - octoprint
   - homeassistant
   - letsencrypt
+  - cert-manager-operator
+  - cert-manager
   - hello-world
   subscriptions:
     acm:
