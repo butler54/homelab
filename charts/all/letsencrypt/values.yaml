@@ -17,7 +17,7 @@ letsencrypt:
   # By default if you include this chart you enable the letsencrypt charts
   # on both the *.apps.<domain> ingress and on the API endpoint
   ## @param letsencrypt.enabled Boolean to enable this feature and request a wildcard cert for the default Infress (*.apps.domain) (defaults to True)
-  aws: true
+  aws: false
   cloudflare: true
   cloudflareSecretKey: secret/data/global/cloudflare
   ## @param letsencrypt.api_endpoint Boolean to enable letsencrypt certs on the API endpoint too (defaults to True)
