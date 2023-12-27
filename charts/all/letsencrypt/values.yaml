@@ -14,6 +14,7 @@ global:
 ## chart in order to request CA signed certificates in a Validated Pattern
 ## @descriptionEnd
 letsencrypt:
+  enabled: true
   # By default if you include this chart you enable the letsencrypt charts
   # on both the *.apps.<domain> ingress and on the API endpoint
   ## @param letsencrypt.enabled Boolean to enable this feature and request a wildcard cert for the default Infress (*.apps.domain) (defaults to True)
