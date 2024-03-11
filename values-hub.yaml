@@ -19,7 +19,18 @@ clusterGroup:
   - cert-manager-operator
   - cert-manager
   - hello-world
-  subscriptions: {}
+  - openshift-cnv
+  - openshift-logging
+  subscriptions:
+    cnv:
+      name: kubevirt-hyperconverged
+      namespace: openshift-cnv
+      channel: stable
+
+    openshift-logging:
+      name: cluster-logging
+      namespace: openshift-logging
+      channel: stable
 
   #csv: advanced-cluster-management.v2.6.1
   # certmanager:
@@ -54,6 +65,11 @@ clusterGroup:
       project: hub
       path: common/golang-external-secrets
 
+    cnv:
+      name: cnv
+      namespace: openshift-cnv
+      project: cnv
+      path: charts/all/cnv
     # octoprint:
     #   name: octoprint
     #   namespace: octoprint
