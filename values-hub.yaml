@@ -14,40 +14,34 @@ clusterGroup:
   - open-cluster-management
   - vault
   - golang-external-secrets
-  - octoprint
   - homeassistant
   - letsencrypt
   - cert-manager-operator
   - cert-manager
   - hello-world
-  subscriptions:
-    acm:
-      name: advanced-cluster-management
-      namespace: open-cluster-management
-      channel: release-2.8
-      #csv: advanced-cluster-management.v2.6.1
-    # certmanager:
-    #   name: cert-manager
-    #   namespace: cert-manager
-    #   channel: stable
+  subscriptions: {}
+
+  #csv: advanced-cluster-management.v2.6.1
+  # certmanager:
+  #   name: cert-manager
+  #   namespace: cert-manager
+  #   channel: stable
 
   projects:
   - hub
-  - octoprint
   - config-demo
   - hello-world
   applications:
-    acm:
-      name: acm
-      namespace: open-cluster-management
-      project: hub
-      path: common/acm
-      ignoreDifferences:
-      - group: internal.open-cluster-management.io
-        kind: ManagedClusterInfo
-        jsonPointers:
-        - /spec/loggingCA
-
+    # acm:
+    #   name: acm
+    #   namespace: open-cluster-management
+    #   project: hub
+    #   path: common/acm
+    #   ignoreDifferences:
+    #   - group: internal.open-cluster-management.io
+    #     kind: ManagedClusterInfo
+    #     jsonPointers:
+    #     - /spec/loggingCA
     vault:
       name: vault
       namespace: vault
@@ -60,11 +54,11 @@ clusterGroup:
       project: hub
       path: common/golang-external-secrets
 
-    octoprint:
-      name: octoprint
-      namespace: octoprint
-      project: octoprint
-      path: charts/all/octoprint
+    # octoprint:
+    #   name: octoprint
+    #   namespace: octoprint
+    #   project: octoprint
+    #   path: charts/all/octoprint
 
     hello-world:
       name: hello-world
@@ -72,11 +66,11 @@ clusterGroup:
       project: hello-world
       path: charts/all/hello-world
 
-    letsencrypt:
-      name: letsencrypt
-      namespace: letsencrypt
-      project: default
-      path: charts/all/letsencrypt
+    # letsencrypt:
+    #   name: letsencrypt
+    #   namespace: letsencrypt
+    #   project: default
+    #   path: charts/all/letsencrypt
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule
