@@ -21,6 +21,8 @@ clusterGroup:
   - hello-world
   - openshift-cnv
   - openshift-logging
+  - openshift-nmstate
+
   subscriptions:
     cnv:
       name: kubevirt-hyperconverged
@@ -30,6 +32,11 @@ clusterGroup:
     openshift-logging:
       name: cluster-logging
       namespace: openshift-logging
+      channel: stable
+
+    openshift-nmstate:
+      name: kubernetes-nmstate-operator
+      namespace: openshift-nmstate
       channel: stable
 
   #csv: advanced-cluster-management.v2.6.1
@@ -43,6 +50,7 @@ clusterGroup:
   - config-demo
   - hello-world
   - cnv
+  - network
   applications:
     # acm:
     #   name: acm
@@ -71,6 +79,11 @@ clusterGroup:
       namespace: openshift-cnv
       project: cnv
       path: charts/all/cnv
+    network:
+      name: network
+      namespace: openshift-nmstate
+      project: network
+      path: charts/all/network
     # octoprint:
     #   name: octoprint
     #   namespace: octoprint
