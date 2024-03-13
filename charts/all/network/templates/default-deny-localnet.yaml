@@ -4,7 +4,7 @@ metadata:
   name: deny-by-default
   namespace: default
   annotations:
-    k8s.v1.cni.cncf.io/policy-for: localnet
+    k8s.v1.cni.cncf.io/policy-for: localnet01
 spec:
   podSelector: {}
   ingress: []
