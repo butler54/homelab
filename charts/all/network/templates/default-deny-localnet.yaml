@@ -1,14 +1,14 @@
-apiVersion: k8s.cni.cncf.io/v1beta1
-kind: MultiNetworkPolicy
-metadata:
-  name: deny-by-default
-  namespace: default
-  annotations:
-    k8s.v1.cni.cncf.io/policy-for: default/localnet
-spec:
-  podSelector: {}
-  policyTypes:
-  - Ingress
-  - Egress
-  ingress: []
-  egress: []
+# apiVersion: k8s.cni.cncf.io/v1beta1
+# kind: MultiNetworkPolicy
+# metadata:
+#   name: deny-by-default
+#   namespace: default
+#   annotations:
+#     k8s.v1.cni.cncf.io/policy-for: default/localnet
+# spec:
+#   podSelector: {}
+#   policyTypes:
+#   - Ingress
+#   - Egress
+#   ingress: []
+#   egress: []
