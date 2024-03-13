@@ -163,7 +163,7 @@ spec:
               user: centos
               password: yc10-n6iy-ttgd
               chpasswd: { expire: False }
-            networkData: |
+            networkData: |-
               version: 2
               ethernets:
                 eth0: 
