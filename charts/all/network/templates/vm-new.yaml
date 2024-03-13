@@ -113,6 +113,7 @@ spec:
       labels:
         kubevirt.io/domain: centos7-salmon
         kubevirt.io/size: small
+        app: centos7-salmon
     spec:
       accessCredentials:
         - sshPublicKey:
