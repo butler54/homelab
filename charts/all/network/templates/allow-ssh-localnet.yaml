@@ -1,15 +1,15 @@
-# apiVersion: k8s.cni.cncf.io/v1beta1
-# kind: MultiNetworkPolicy
-# metadata:
-#   name: allow-ssh-inbound
-#   namespace: default
-#   annotations:
-#     k8s.v1.cni.cncf.io/policy-for: default/localnet
-# spec:
-#   podSelector: {}
-#   policyTypes:
-#   - Ingress
-#   ingress:
-#   - ports:
-#     - protocol: TCP
-#       port: 22
+apiVersion: k8s.cni.cncf.io/v1beta1
+kind: MultiNetworkPolicy
+metadata:
+  name: allow-ssh-inbound
+  namespace: default
+  annotations:
+    k8s.v1.cni.cncf.io/policy-for: default/localnet
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  ingress:
+  - ports:
+    - protocol: TCP
+      port: 22
