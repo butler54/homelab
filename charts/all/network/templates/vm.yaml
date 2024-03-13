@@ -164,3 +164,8 @@
 #               password: yc10-n6iy-ttgd
 #               chpasswd: { expire: False }
 #           name: cloudinitdisk
+
+        # version: 2
+        # ethernets:
+        #   eth1: 
+        #     dhcp4: true
