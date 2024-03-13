@@ -2,7 +2,6 @@ apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   annotations:
-    kubemacpool.io/transaction-timestamp: '2024-03-13T23:16:14.98213671Z'
     vm.kubevirt.io/validations: |
       [
         {
@@ -13,7 +12,6 @@ metadata:
           "min": 1073741824
         }
       ]
-  creationTimestamp: '2024-03-13T23:16:14Z'
   generation: 1
   labels:
     app: centos7-salmon-blackbird-20
@@ -88,7 +86,6 @@ metadata:
       time: '2024-03-13T23:16:14Z'
   name: centos7-salmon-blackbird-20
   namespace: default
-  uid: e2b51ea6-9f70-4c48-ba9c-34682b471f78
 spec:
   dataVolumeTemplates:
     - apiVersion: cdi.kubevirt.io/v1beta1
