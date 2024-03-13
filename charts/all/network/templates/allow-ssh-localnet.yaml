@@ -6,7 +6,7 @@ metadata:
   annotations:
     k8s.v1.cni.cncf.io/policy-for: default/localnet
 spec:
-  podSelector: {}
+  # podSelector: {}
   policyTypes:
   - Ingress
   ingress:
