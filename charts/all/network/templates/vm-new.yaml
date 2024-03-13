@@ -169,8 +169,3 @@ spec:
                 eth0: 
                   dhcp4: true 
           name: cloudinitdisk
-
-        version: 2
-        ethernets:
-          eth1: 
-            dhcp4: true
