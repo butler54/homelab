@@ -6,7 +6,9 @@ metadata:
   annotations:
     k8s.v1.cni.cncf.io/policy-for: default/localnet
 spec:
-  # podSelector: {}
+  podSelector:
+    matchLabels:
+      app: centos-stream9-indigo-asp-98
   policyTypes:
   - Ingress
   ingress:
