@@ -8,7 +8,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: virt-launcher-centos7-salmon-n5jcf
+      name: centos7-salmon
   policyTypes:
   - Ingress
   ingress:
