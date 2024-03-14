@@ -8,7 +8,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: centos-stream9-indigo-asp-98
+      kubevirt.io/domain: centos7-salmon
   policyTypes:
   - Ingress
   ingress:
