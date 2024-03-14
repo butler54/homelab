@@ -8,7 +8,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      kubevirt.io/domain: centos7-salmon
+      name: centos7-salmon
   policyTypes:
   - Ingress
   ingress:
