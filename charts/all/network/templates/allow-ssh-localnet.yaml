@@ -8,7 +8,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      name: centos7-salmon
+      app: centos7-salmon
   policyTypes:
   - Ingress
   ingress:
