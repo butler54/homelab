@@ -14,7 +14,7 @@ csi-driver-nfs:
 
 
 ## Run this
-# oc adm policy add-scc-to-user privileged -z csi-nfs-node-sa -n csi-driver-nfs
-# oc adm policy add-scc-to-user privileged -z csi-nfs-controller-sa -n csi-driver-nfs
+# oc adm policy add-scc-to-user privileged -z csi-nfs-node-sa -n minio
+# oc adm policy add-scc-to-user privileged -z csi-nfs-controller-sa -n minio
 
 

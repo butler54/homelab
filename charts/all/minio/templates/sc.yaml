@@ -1,0 +1,12 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-csi
+provisioner: nfs.csi.k8s.io   
+parameters:
+  server: nas.thebutlers.me   ### NFS server's IP/FQDN
+  share:  /kube-nfs             ### NFS server's exported directory
+  subDir: ${pvc.metadata.namespace}-${pvc.metadata.name}-${pv.metadata.name}  ### Folder/subdir name template
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
