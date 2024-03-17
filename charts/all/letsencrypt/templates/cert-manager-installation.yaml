@@ -6,11 +6,12 @@ metadata:
   name: openshift-cert-manager-operator
   namespace: cert-manager-operator
 spec:
-  channel: "{{ .Values.letsencrypt.certmanagerChannel }}"
+  channel: "stable-v1"
   installPlanApproval: Automatic
   name: openshift-cert-manager-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
+  startingCSV: cert-manager-operator.v1.13.0
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
