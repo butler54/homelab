@@ -32,7 +32,6 @@ metadata:
   name: validated-patterns-issuer
 spec:
   acme:
-    name:
     server: {{ .Values.letsencrypt.server }}
     email: {{ .Values.letsencrypt.email }}
     privateKeySecretRef:
