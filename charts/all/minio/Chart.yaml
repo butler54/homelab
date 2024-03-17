@@ -4,7 +4,13 @@ keywords:
 - pattern
 name: minio
 version: 0.0.1
-dependencies: []
+dependencies: 
   # - name: nfs-subdir-external-provisioner
   #   repository: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
   #   version: "4.0.2"
+  - name: csi-driver-nfs
+    repository: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+    version: "4.6.0"
+
+
+# Follow this: https://hackmd.io/@johnsimcall/BJeW2Y5mT?utm_source=preview-mode&utm_medium=rec

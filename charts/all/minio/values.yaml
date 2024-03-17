@@ -4,11 +4,17 @@ global:
   localCluster: local.example.com
 
 
-nfs-subdir-external-provisioner:
-  nfs:
-    server: nas.thebutlers.me
-    path: /kube-nfs
+csi-driver-nfs:
+  controller:
+    runOnControlPlane: true
+  externalSnapshotter:
+    enabled: true
+    customResourceDefinitions:
+      enabled: true
 
 
-# oc adm policy add-scc-to-user hostmount-anyuid system:serviceaccount:minio:minio-nfs-client-provisioner
-##clusterrole.rbac.authorization.k8s.io/system:openshift:scc:hostmount-anyuid added: "minio-nfs-client-provisioner"
+## Run this
+# oc adm policy add-scc-to-user privileged -z csi-nfs-node-sa -n csi-driver-nfs
+# oc adm policy add-scc-to-user privileged -z csi-nfs-controller-sa -n csi-driver-nfs
+
+
