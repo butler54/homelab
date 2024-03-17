@@ -22,7 +22,7 @@ clusterGroup:
   - openshift-cnv
   - openshift-logging
   - openshift-nmstate
-
+  - minio
   subscriptions:
     cnv:
       name: kubevirt-hyperconverged
@@ -106,6 +106,12 @@ clusterGroup:
       namespace: letsencrypt
       project: default
       path: charts/all/letsencrypt
+
+    minio:
+      name: minio
+      namespace: minio
+      project: default
+      path: charts/all/minio
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule

@@ -1,0 +1,10 @@
+apiVersion: v2
+description: A helm chart to provision minio and nfs storage (which it will user)
+keywords:
+- pattern
+name: minio
+version: 0.0.1
+dependencies:
+  - name: nfs-subdir-external-provisione
+    repository: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+    

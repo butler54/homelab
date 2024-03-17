@@ -1,0 +1,9 @@
+---
+global:
+  hubClusterDomain: hub.example.com
+  localCluster: local.example.com
+
+
+nfs:
+  server: nas.thebutlers.me
+  path: /kube-nfs
