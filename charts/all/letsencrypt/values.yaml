@@ -7,7 +7,7 @@
 ## @descriptionEnd
 global:
   ## @param global.localClusterDomain String containing the domain including the apps. prefix. Gets set by the Validated Pattern framework
-  localClusterDomain: "apps.example.com"
+  localClusterDomain: "apps.ocp.thebutlers.me"
 
 ## @section letsencrypt parameters
 ## @descriptionStart This section contains all the parameters for the letsencrypt
@@ -29,13 +29,12 @@ letsencrypt:
   ## @param letsencrypt.region String that defines the region used by the route53/dns01 resolver in cert-manager (required)
   region: eu-central-1
   ## @param letsencrypt.email String containing the email used when requesting certificates to letsencrypt (required)
-  email: test@example.com
-
+  email:  chris.butler@protonmail.com
   # By default we use the staging URL to avoid any ratelimiting while testing
   # To switch to the production certificates signed by a recognized CA, please
   # switch the comments around in the two following lines
   ## @param letsencrypt.server String containing the letsencrypt ACME URL (Defaults to the staging server)
-  server: https://acme-staging-v02.api.letsencrypt.org/directory
+ # server: https://acme-staging-v02.api.letsencrypt.org/directory
   # server: https://acme-v02.api.letsencrypt.org/directory
 
   # These are only for metadata in the certificates
@@ -60,7 +59,7 @@ letsencrypt:
   - 1.1.1.1:53
 
   ## @param letsencrypt.certmanagerChannel String the channel to install cert-manager from (Defaults to "stable-v1")
-  certmanagerChannel: "stable-v1"
+  certmanagerChannel: "stable"
 
 secretStore:
   name: vault-backend

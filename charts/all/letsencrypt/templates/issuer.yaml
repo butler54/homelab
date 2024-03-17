@@ -27,7 +27,7 @@ spec:
 {{ if .Values.letsencrypt.cloudflare }}
 ---
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
   name: validated-patterns-issuer
 spec:
@@ -37,6 +37,7 @@ spec:
     solvers:
     - dns01:
         cloudflare:
+          email: chris.butler@protonmail.com
           apiTokenSecretRef:
             name: cloudflare-api-token-secret
             key: api-token
