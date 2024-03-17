@@ -8,3 +8,7 @@ nfs-subdir-external-provisioner:
   nfs:
     server: nas.thebutlers.me
     path: /kube-nfs
+
+
+# oc adm policy add-scc-to-user hostmount-anyuid system:serviceaccount:minio:minio-nfs-client-provisioner
+##clusterrole.rbac.authorization.k8s.io/system:openshift:scc:hostmount-anyuid added: "minio-nfs-client-provisioner"
