@@ -7,10 +7,4 @@ metadata:
     argocd.argoproj.io/sync-options: ServerSideApply=true, Validate=false, SkipDryRunOnMissingResource=true
 spec:
   managementState: "Managed"
-  unsupportedConfigOverrides:
-    # Here's an example to supply custom DNS settings.
-    controller:
-      args:
-        - "--dns01-recursive-nameservers={{ with index .Values.letsencrypt.nameservers 0 }}{{ . }}{{- end }},{{ with index .Values.letsencrypt.nameservers 1 }}{{ . }}{{- end }}"
-        - "--dns01-recursive-nameservers-only"
 {{- end }}
