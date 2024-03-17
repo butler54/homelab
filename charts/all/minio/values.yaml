@@ -4,6 +4,7 @@ global:
   localCluster: local.example.com
 
 
-nfs:
-  server: nas.thebutlers.me
-  path: /kube-nfs
+nfs-subdir-external-provisioner:
+  nfs:
+    server: nas.thebutlers.me
+    path: /kube-nfs
