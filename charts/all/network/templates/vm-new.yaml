@@ -87,7 +87,6 @@ metadata:
       time: '2024-03-18T23:41:04Z'
   name: centos7-cjb-2
   namespace: default
-  uid: 1eab86ec-4971-4c16-943d-538e8cdd37ab
 spec:
   dataVolumeTemplates:
     - apiVersion: cdi.kubevirt.io/v1beta1
