@@ -25,12 +25,14 @@ metadata:
   annotations:
     k8s.v1.cni.cncf.io/policy-for: default/localnet
 spec:
-  podSelector:
-    matchLabels:
-      app: centos7-salmon
+  podSelector: {}
+#   policyTypes:
+#   - Ingress
+#   podSelector:
+#     matchLabels:
+#       app: centos7-salmon
   policyTypes:
   - Ingress
-  - Egress
   ingress:
   - from:
     - ipBlock:
