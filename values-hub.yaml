@@ -43,6 +43,10 @@ clusterGroup:
       name: openshift-cert-manager-operator
       namespace: cert-manager-operator
       channel: stable-v1
+    openshift-nmstate:
+      name: kubernetes-nmstate-operator
+      namespace: openshift-nmstate
+      channel: stable
 
   #csv: advanced-cluster-management.v2.6.1
   # certmanager:
