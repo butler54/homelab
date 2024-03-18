@@ -14,7 +14,7 @@ metadata:
       ]
   generation: 1
   labels:
-    app: centos7-salmon
+    app: centos-7-cjb
     vm.kubevirt.io/template: centos7-server-small
     vm.kubevirt.io/template.namespace: openshift
     vm.kubevirt.io/template.revision: '1'
@@ -77,22 +77,22 @@ metadata:
                   .: {}
                   'f:guest': {}
                 'f:resources': {}
-              'f:hostname': {}
               'f:networks': {}
               'f:terminationGracePeriodSeconds': {}
               'f:volumes': {}
       manager: kubectl-create
       operation: Update
-      time: '2024-03-13T23:16:14Z'
-  name: centos7-salmon
+      time: '2024-03-18T23:28:08Z'
+  name: centos-7-cjb
   namespace: default
+  uid: a7a3423f-d2d9-4037-a27b-916d85ce8211
 spec:
   dataVolumeTemplates:
     - apiVersion: cdi.kubevirt.io/v1beta1
       kind: DataVolume
       metadata:
         creationTimestamp: null
-        name: centos7-salmon
+        name: centos-7-cjb
       spec:
         sourceRef:
           kind: DataSource
@@ -111,9 +111,9 @@ spec:
         vm.kubevirt.io/workload: server
       creationTimestamp: null
       labels:
-        kubevirt.io/domain: centos7-salmon
+        kubevirt.io/domain: centos-7-cjb
         kubevirt.io/size: small
-        app: centos7-salmon
+        app: centos-7-cjb
     spec:
       accessCredentials:
         - sshPublicKey:
@@ -125,7 +125,7 @@ spec:
       architecture: amd64
       domain:
         cpu:
-          cores: 2
+          cores: 1
           sockets: 1
           threads: 1
         devices:
@@ -138,7 +138,7 @@ spec:
               name: cloudinitdisk
           interfaces:
             - bridge: {}
-              macAddress: '02:c1:89:00:00:10'
+              macAddress: '02:ec:14:00:00:01'
               model: virtio
               name: default
           networkInterfaceMultiqueue: true
@@ -146,9 +146,9 @@ spec:
         machine:
           type: pc-q35-rhel9.2.0
         memory:
-          guest: 4Gi
+          guest: 2Gi
         resources: {}
-      hostname: centos-7
+      hostname: centos-7-cjb
       networks:
         - multus:
             networkName: default/localnet
@@ -156,17 +156,12 @@ spec:
       terminationGracePeriodSeconds: 180
       volumes:
         - dataVolume:
-            name: centos7-salmon
+            name: centos7-bronze-beetle-69
           name: rootdisk
         - cloudInitNoCloud:
             userData: |-
               #cloud-config
               user: centos
-              password: yc10-n6iy-ttgd
+              password: 0mea-6iyb-ybbd
               chpasswd: { expire: False }
-            networkData: |-
-              version: 2
-              ethernets:
-                eth0: 
-                  dhcp4: true 
           name: cloudinitdisk
