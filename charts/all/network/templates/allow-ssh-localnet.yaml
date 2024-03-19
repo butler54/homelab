@@ -1,20 +1,20 @@
-# apiVersion: k8s.cni.cncf.io/v1beta1
-# kind: MultiNetworkPolicy
-# metadata:
-#   name: allow-ssh-inbound
-#   namespace: default
-#   annotations:
-#     k8s.v1.cni.cncf.io/policy-for: default/localnet
-# spec:
-#   podSelector:
-#     matchLabels:
-#       app: centos7-salmon
-#   policyTypes:
-#   - Ingress
-#   ingress:
-#   - ports:
-#     - protocol: TCP
-#       port: 22
+# # apiVersion: k8s.cni.cncf.io/v1beta1
+# # kind: MultiNetworkPolicy
+# # metadata:
+# #   name: allow-ssh-inbound
+# #   namespace: default
+# #   annotations:
+# #     k8s.v1.cni.cncf.io/policy-for: default/localnet
+# # spec:
+# #   podSelector:
+# #     matchLabels:
+# #       app: centos7-salmon
+# #   policyTypes:
+# #   - Ingress
+# #   ingress:
+# #   - ports:
+# #     - protocol: TCP
+# #       port: 22
 
 ---
 apiVersion: k8s.cni.cncf.io/v1beta1
@@ -49,4 +49,4 @@ spec:
 #     ports:
 #     - protocol: TCP
 #       port: 5432
----
+# ---
