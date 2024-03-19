@@ -10,4 +10,4 @@ spec:
       bridge-mappings:
       - localnet: localnet01
         bridge: br-ex 
-        state: present 
+        state: present
