@@ -1,19 +1,19 @@
----
-apiVersion: k8s.cni.cncf.io/v1beta1
-kind: MultiNetworkPolicy
-metadata:
-  name: outbound-allow
-  namespace: default
-  annotations:
-    k8s.v1.cni.cncf.io/policy-for: default/localnet
-spec:
-  podSelector: {}
+# ---
+# apiVersion: k8s.cni.cncf.io/v1beta1
+# kind: MultiNetworkPolicy
+# metadata:
+#   name: outbound-allow
+#   namespace: default
+#   annotations:
+#     k8s.v1.cni.cncf.io/policy-for: default/localnet
+# spec:
+#   podSelector: {}
+# #   policyTypes:
+# #   - Ingress
+# #   podSelector:
+# #     matchLabels:
+# #       app: centos7-salmon
 #   policyTypes:
-#   - Ingress
-#   podSelector:
-#     matchLabels:
-#       app: centos7-salmon
-  policyTypes:
-  - Egress
-  egress:
-  - {}
+#   - Egress
+#   egress:
+#   - {}

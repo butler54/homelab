@@ -1,52 +1,26 @@
-# # apiVersion: k8s.cni.cncf.io/v1beta1
-# # kind: MultiNetworkPolicy
-# # metadata:
-# #   name: allow-ssh-inbound
-# #   namespace: default
-# #   annotations:
-# #     k8s.v1.cni.cncf.io/policy-for: default/localnet
-# # spec:
+# ---
+# apiVersion: k8s.cni.cncf.io/v1beta1
+# kind: MultiNetworkPolicy
+# metadata:
+#   name: allow-ssh
+#   namespace: default
+#   annotations:
+#     k8s.v1.cni.cncf.io/policy-for: default/localnet
+# spec:
+#   podSelector: {}
+# #   policyTypes:
+# #   - Ingress
 # #   podSelector:
 # #     matchLabels:
 # #       app: centos7-salmon
-# #   policyTypes:
-# #   - Ingress
-# #   ingress:
-# #   - ports:
-# #     - protocol: TCP
-# #       port: 22
-
----
-apiVersion: k8s.cni.cncf.io/v1beta1
-kind: MultiNetworkPolicy
-metadata:
-  name: allow-ssh
-  namespace: default
-  annotations:
-    k8s.v1.cni.cncf.io/policy-for: default/localnet
-spec:
-  podSelector: {}
 #   policyTypes:
 #   - Ingress
-#   podSelector:
-#     matchLabels:
-#       app: centos7-salmon
-  policyTypes:
-  - Ingress
-  ingress:
-  - from:
-    - ipBlock:
-        cidr: 0.0.0.0/32
-    - ipBlock:
-        cidr: ::/0 
-    ports:
-    - protocol: TCP
-      port: 22
-#   egress:
-#   - to:
+#   ingress:
+#   - from:
 #     - ipBlock:
-#         cidr: 192.168.200.1/32
+#         cidr: 0.0.0.0/32
+#     - ipBlock:
+#         cidr: ::/0 
 #     ports:
 #     - protocol: TCP
-#       port: 5432
-# ---
+#       port: 22
