@@ -16,17 +16,4 @@ spec:
   policyTypes:
   - Egress
   egress:
-  - to: 
-    - ipBlock:
-        cidr: 0.0.0.0/0
-    - ipBlock:
-        cidr: ::/0 
-    ports:
-    - protocol: TCP
-      port: 80
-    - protocol: TCP
-      port: 443
-    - protocol: TCP
-      port: 53
-    - protocol: UDP
-      port: 53
+  - {}
