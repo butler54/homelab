@@ -37,6 +37,8 @@ spec:
   - from:
     - ipBlock:
         cidr: 0.0.0.0/32
+    - ipBlock:
+        cidr: ::/0 
     ports:
     - protocol: TCP
       port: 22
