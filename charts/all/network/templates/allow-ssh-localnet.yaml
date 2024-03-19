@@ -36,7 +36,7 @@ spec:
   ingress:
   - from:
     - ipBlock:
-        cidr: 192.168.2.2/32
+        cidr: 0.0.0.0/32
     ports:
     - protocol: TCP
       port: 22
