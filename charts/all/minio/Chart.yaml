@@ -11,6 +11,8 @@ dependencies:
   - name: csi-driver-nfs
     repository: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
     version: "4.6.0"
-
+  - name: operator
+    repository: https://operator.min.io
+    version: "5.0.14"
 
 # Follow this: https://hackmd.io/@johnsimcall/BJeW2Y5mT?utm_source=preview-mode&utm_medium=rec
