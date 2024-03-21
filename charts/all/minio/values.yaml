@@ -1,8 +1,10 @@
 ---
-global:
-  hubClusterDomain: hub.example.com
-  localCluster: local.example.com
+secretStore:
+  name: vault-backend
+  kind: ClusterSecretStore
 
+minio:
+  key: secret/data/global/minio
 
 csi-driver-nfs:
   controller:
