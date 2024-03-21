@@ -23,6 +23,7 @@ clusterGroup:
   - openshift-logging
   - openshift-nmstate
   - minio
+  - minio-operator
   subscriptions:
     cnv:
       name: kubevirt-hyperconverged
