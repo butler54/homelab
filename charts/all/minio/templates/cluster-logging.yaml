@@ -8,7 +8,7 @@ spec:
     type: vector
   logStore:
     lokistack:
-      name: lokistack
+      name: logging-loki
     retentionPolicy:
       application:
         maxAge: 7d
