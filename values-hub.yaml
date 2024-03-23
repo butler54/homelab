@@ -37,10 +37,11 @@ clusterGroup:
       namespace: openshift-logging
       channel: stable
 
-    lokistack:
-      name: loki-operator
-      namespace: openshift-operators-redhat
-      channel: stable
+    # something wrong. . install by hand
+    # lokistack:
+    #   name: loki-operator
+    #   namespace: openshift-operators-redhat
+    #   channel: stable
 
     openshift-nmstate:
       name: kubernetes-nmstate-operator
