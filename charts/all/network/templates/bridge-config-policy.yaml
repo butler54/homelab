@@ -1,0 +1,16 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: br1-eth1-policy 
+spec:
+  desiredState:
+    interfaces:
+      - name: br1 
+        description: Linux bridge with en0 as a port 
+        type: linux-bridge 
+        state: up 
+        ipv4:
+          enabled: true
+        bridge:
+          port:
+            - name: eno1 
