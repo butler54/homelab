@@ -21,7 +21,6 @@ clusterGroup:
   - cert-manager
   - hello-world
   - openshift-cnv
-  - openshift-logging
   - openshift-nmstate
   - minio
   - minio-operator
