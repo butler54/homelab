@@ -1,0 +1,7 @@
+apiVersion: v2
+description: A helm chart to provision a vm w/ tailscale installed and configure with cloud-init
+keywords:
+- pattern
+name: tailscale
+version: 0.0.1
+#dependencies:
