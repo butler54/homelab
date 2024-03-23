@@ -1,0 +1,184 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  annotations:
+  generation: 1
+  labels:
+    app: tailscale
+    kubevirt.io/dynamic-credentials-support: 'true'
+    vm.kubevirt.io/template: fedora-server-small
+    vm.kubevirt.io/template.namespace: openshift
+    vm.kubevirt.io/template.revision: '1'
+    vm.kubevirt.io/template.version: v0.27.0
+  managedFields:
+    - apiVersion: kubevirt.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubemacpool.io/transaction-timestamp': {}
+            'f:vm.kubevirt.io/validations': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:kubevirt.io/dynamic-credentials-support': {}
+            'f:vm.kubevirt.io/template': {}
+            'f:vm.kubevirt.io/template.namespace': {}
+            'f:vm.kubevirt.io/template.revision': {}
+            'f:vm.kubevirt.io/template.version': {}
+        'f:spec':
+          .: {}
+          'f:dataVolumeTemplates': {}
+          'f:running': {}
+          'f:template':
+            .: {}
+            'f:metadata':
+              .: {}
+              'f:annotations':
+                .: {}
+                'f:vm.kubevirt.io/flavor': {}
+                'f:vm.kubevirt.io/os': {}
+                'f:vm.kubevirt.io/workload': {}
+              'f:creationTimestamp': {}
+              'f:labels':
+                .: {}
+                'f:kubevirt.io/domain': {}
+                'f:kubevirt.io/size': {}
+            'f:spec':
+              .: {}
+              'f:accessCredentials': {}
+              'f:architecture': {}
+              'f:domain':
+                .: {}
+                'f:cpu':
+                  .: {}
+                  'f:cores': {}
+                  'f:sockets': {}
+                  'f:threads': {}
+                'f:devices':
+                  .: {}
+                  'f:disks': {}
+                  'f:interfaces': {}
+                  'f:networkInterfaceMultiqueue': {}
+                  'f:rng': {}
+                'f:features':
+                  .: {}
+                  'f:acpi': {}
+                  'f:smm':
+                    .: {}
+                    'f:enabled': {}
+                'f:firmware':
+                  .: {}
+                  'f:bootloader':
+                    .: {}
+                    'f:efi': {}
+                'f:machine':
+                  .: {}
+                  'f:type': {}
+                'f:memory':
+                  .: {}
+                  'f:guest': {}
+                'f:resources': {}
+              'f:networks': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:volumes': {}
+      manager: kubectl-create
+      operation: Update
+      time: '2024-03-23T09:28:15Z'
+  name: tailscale
+  namespace: tailscale
+spec:
+  dataVolumeTemplates:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      kind: DataVolume
+      metadata:
+        creationTimestamp: null
+        name: tailscale
+      spec:
+        sourceRef:
+          kind: DataSource
+          name: fedora
+          namespace: openshift-virtualization-os-images
+        storage:
+          resources:
+            requests:
+              storage: 30Gi
+  running: false
+  template:
+    metadata:
+      annotations:
+        vm.kubevirt.io/flavor: small
+        vm.kubevirt.io/os: fedora
+        vm.kubevirt.io/workload: server
+      creationTimestamp: null
+      labels:
+        kubevirt.io/domain: tailscale
+        kubevirt.io/size: small
+    spec:
+      accessCredentials:
+        - sshPublicKey:
+            propagationMethod:
+              noCloud: {}
+            source:
+              secret:
+                secretName: sshpubkey
+      architecture: amd64
+      domain:
+        cpu:
+          cores: 2
+          sockets: 1
+          threads: 1
+        devices:
+          disks:
+            - disk:
+                bus: virtio
+              name: rootdisk
+            - disk:
+                bus: virtio
+              name: cloudinitdisk
+          interfaces:
+            - bridge: {}
+              macAddress: '02:ec:14:00:00:04'
+              model: virtio
+              name: default
+          networkInterfaceMultiqueue: true
+          rng: {}
+        features:
+          acpi: {}
+          smm:
+            enabled: true
+        firmware:
+          bootloader:
+            efi: {}
+        machine:
+          type: pc-q35-rhel9.2.0
+        memory:
+          guest: 4Gi
+        resources: {}
+      networks:
+        - multus:
+            networkName: bridge-network
+          name: default
+      terminationGracePeriodSeconds: 180
+      volumes:
+        - dataVolume:
+            name: tailscale
+          name: rootdisk
+        - cloudInitNoCloud:
+            secretRef:
+                name: userdata
+            # userDataSecretRef: my-vm-userdata 
+            # networkData: |-
+            #   version: 2
+            #   ethernets:
+            #     default:
+            #       match:
+            #         name: en*
+            #       dhcp4: true
+        # - cloudInitNoCloud:
+        #     networkDataSecretRef: 
+        #         name: vm-test
+        #     secretRef: 
+        #         name: vm-test
+          name: cloudinitdisk
