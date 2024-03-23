@@ -15,6 +15,7 @@ clusterGroup:
   - vault
   - golang-external-secrets
   - homeassistant
+  - tailscale
   - letsencrypt
   - cert-manager-operator
   - cert-manager
@@ -24,6 +25,7 @@ clusterGroup:
   - openshift-nmstate
   - minio
   - minio-operator
+
   subscriptions:
     cnv:
       name: kubevirt-hyperconverged
@@ -35,6 +37,11 @@ clusterGroup:
       namespace: openshift-logging
       channel: stable
 
+    lokistack:
+      name: loki-operator
+      namespace: openshift-operators-redhat
+      channel: stable
+
     openshift-nmstate:
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
@@ -44,10 +51,6 @@ clusterGroup:
       name: openshift-cert-manager-operator
       namespace: cert-manager-operator
       channel: stable-v1
-    openshift-nmstate:
-      name: kubernetes-nmstate-operator
-      namespace: openshift-nmstate
-      channel: stable
 
   #csv: advanced-cluster-management.v2.6.1
   # certmanager:
@@ -89,11 +92,17 @@ clusterGroup:
       namespace: openshift-cnv
       project: cnv
       path: charts/all/cnv
+    # example configs for localnet routing
     network:
       name: network
       namespace: openshift-nmstate
       project: network
       path: charts/all/network
+    tailscale:
+      name: tailscale
+      namespace: tailscale
+      project: hub
+      path: charts/all/tailscale
     # octoprint:
     #   name: octoprint
     #   namespace: octoprint

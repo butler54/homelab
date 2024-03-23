@@ -1,10 +1,12 @@
----
 secretStore:
   name: vault-backend
   kind: ClusterSecretStore
 
 minio:
   key: secret/data/global/minio
+
+loki_esc:
+  key: secret/data/global/logging-loki-s3
 
 csi-driver-nfs:
   controller:
