@@ -9,9 +9,9 @@ metadata:
     openshift.io/cluster-monitoring: "true"
 ---
 apiVersion: v1
-kind: openshift-logging
+kind: Namespace
 metadata:
-  name: openshift-operators-redhat
+  name: openshift-logging
   annotations:
     openshift.io/node-selector: ""
   labels:
