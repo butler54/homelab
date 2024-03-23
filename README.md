@@ -25,3 +25,12 @@ https://github.com/mortylabs/kubernetes/blob/main/pv_nfs/deployment.yaml
 https://github.com/mysticrenji/home-assistant-on-kubernetes
 
 https://github.com/abalage/home-assistant-k8s
+
+
+#
+
+
+oc patch consoles.operator.openshift.io cluster  --type=merge \
+--patch '{ "spec": { "plugins": ["logging-view-plugin", "gitops-plugin", "kubevirt-plugin", "monitoring-plugin", "nmstate-console-plugin"]}}'
+
+
