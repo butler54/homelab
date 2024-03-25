@@ -3,6 +3,8 @@ kind: NodeNetworkConfigurationPolicy
 metadata:
   name: br1-eth1-policy 
 spec:
+  nodeSelector:
+    node-role.kubernetes.io/worker: '' 
   desiredState:
     interfaces:
       - name: br1 
@@ -13,4 +15,4 @@ spec:
           enabled: true
         bridge:
           port:
-            - name: eno1 
+          - name: eno1
