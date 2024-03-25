@@ -1,18 +1,19 @@
 apiVersion: nmstate.io/v1
 kind: NodeNetworkConfigurationPolicy
 metadata:
-  name: br1-eth1-policy 
+  name: br0 
 spec:
   nodeSelector:
     node-role.kubernetes.io/worker: '' 
   desiredState:
     interfaces:
-      - name: br1 
-        description: Linux bridge with en0 as a port 
-        type: linux-bridge 
-        state: up 
+      - bridge:
+          options:
+            stp:
+              enabled: true
         ipv4:
+          dhcp: true
           enabled: true
-        bridge:
-          port:
-          - name: eno1
+        name: br0
+        state: up
+        type: linux-bridge
