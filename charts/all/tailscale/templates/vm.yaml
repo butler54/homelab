@@ -174,7 +174,7 @@ spec:
               ethernets:
                 default:
                   match:
-                    name: en*
+                    name: eth*
                   dhcp4: true
         # - cloudInitNoCloud:
         #     networkDataSecretRef: 
