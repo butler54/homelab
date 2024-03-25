@@ -169,13 +169,13 @@ spec:
             secretRef:
                 name: userdata
             # userDataSecretRef: my-vm-userdata 
-            # networkData: |-
-            #   version: 2
-            #   ethernets:
-            #     default:
-            #       match:
-            #         name: en*
-            #       dhcp4: true
+            networkData: |-
+              version: 2
+              ethernets:
+                default:
+                  match:
+                    name: en*
+                  dhcp4: true
         # - cloudInitNoCloud:
         #     networkDataSecretRef: 
         #         name: vm-test
