@@ -146,7 +146,7 @@
 #         machine:
 #           type: pc-q35-rhel9.2.0
 #         memory:
-#           guest: 2Gi
+#           guest: 4Gi
 #         resources: {}
 #       networks:
 #         - multus:

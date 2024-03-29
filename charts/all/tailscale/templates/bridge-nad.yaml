@@ -11,5 +11,6 @@ spec:
     "name": "bridge-network", 
     "type": "cnv-bridge", 
     "bridge": "br0", 
-    "macspoofchk": true 
+    "macspoofchk": true,
+    "netAttachDefName": "tailscale/bridge-network"
   }'

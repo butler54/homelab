@@ -158,7 +158,7 @@ spec:
         resources: {}
       networks:
         - multus:
-            networkName: bridge-network
+            networkName: tailscale/bridge-network
           name: default
       terminationGracePeriodSeconds: 180
       volumes:
