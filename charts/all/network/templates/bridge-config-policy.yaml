@@ -11,8 +11,8 @@ spec:
           options:
             stp:
               enabled: true
-            port:
-            - name: eno1
+          port:
+          - name: eno1
         ipv4:
           dhcp: true
           enabled: true
