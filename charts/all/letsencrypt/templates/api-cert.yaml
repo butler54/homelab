@@ -6,6 +6,7 @@ metadata:
   namespace: openshift-config
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   secretName: api-validated-patterns-letsencrypt-cert
   duration: {{ .Values.letsencrypt.duration }}
