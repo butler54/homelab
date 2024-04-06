@@ -11,3 +11,6 @@ spec:
       - localnet: localnet01
         bridge: br-ex 
         state: present
+      - localnet: tailscale
+        bridge: br-ex
+        state: present

@@ -2,11 +2,23 @@ apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   annotations:
+    kubemacpool.io/transaction-timestamp: '2024-04-06T06:17:56.634044826Z'
+    vm.kubevirt.io/validations: |
+      [
+        {
+          "name": "minimal-required-memory",
+          "path": "jsonpath::.spec.domain.memory.guest",
+          "rule": "integer",
+          "message": "This VM requires more memory.",
+          "min": 1610612736
+        }
+      ]
+  creationTimestamp: '2024-04-06T06:17:56Z'
   generation: 1
   labels:
-    app: tailscale
+    app: centos-tailscale
     kubevirt.io/dynamic-credentials-support: 'true'
-    vm.kubevirt.io/template: fedora-server-small
+    vm.kubevirt.io/template: centos-stream9-server-small
     vm.kubevirt.io/template.namespace: openshift
     vm.kubevirt.io/template.revision: '1'
     vm.kubevirt.io/template.version: v0.27.0
@@ -62,17 +74,6 @@ metadata:
                   'f:interfaces': {}
                   'f:networkInterfaceMultiqueue': {}
                   'f:rng': {}
-                'f:features':
-                  .: {}
-                  'f:acpi': {}
-                  'f:smm':
-                    .: {}
-                    'f:enabled': {}
-                'f:firmware':
-                  .: {}
-                  'f:bootloader':
-                    .: {}
-                    'f:efi': {}
                 'f:machine':
                   .: {}
                   'f:type': {}
@@ -85,20 +86,21 @@ metadata:
               'f:volumes': {}
       manager: kubectl-create
       operation: Update
-      time: '2024-03-23T09:28:15Z'
-  name: tailscale
+      time: '2024-04-06T06:17:56Z'
+  name: centos-tailscale
   namespace: tailscale
+  uid: 64bebaa2-43b4-4ec8-8be0-86416f1efaa8
 spec:
   dataVolumeTemplates:
     - apiVersion: cdi.kubevirt.io/v1beta1
       kind: DataVolume
       metadata:
         creationTimestamp: null
-        name: tailscale
+        name: centos-tailscale
       spec:
         sourceRef:
           kind: DataSource
-          name: fedora
+          name: centos-stream9
           namespace: openshift-virtualization-os-images
         storage:
           resources:
@@ -109,11 +111,11 @@ spec:
     metadata:
       annotations:
         vm.kubevirt.io/flavor: small
-        vm.kubevirt.io/os: fedora
+        vm.kubevirt.io/os: centos-stream9
         vm.kubevirt.io/workload: server
       creationTimestamp: null
       labels:
-        kubevirt.io/domain: tailscale
+        kubevirt.io/domain: centos-tailscale
         kubevirt.io/size: small
     spec:
       accessCredentials:
@@ -139,18 +141,11 @@ spec:
               name: cloudinitdisk
           interfaces:
             - bridge: {}
-              macAddress: '02:ec:14:00:00:04'
+              macAddress: '02:ec:14:00:00:0f'
               model: virtio
               name: default
           networkInterfaceMultiqueue: true
           rng: {}
-        features:
-          acpi: {}
-          smm:
-            enabled: true
-        firmware:
-          bootloader:
-            efi: {}
         machine:
           type: pc-q35-rhel9.2.0
         memory:
@@ -158,27 +153,17 @@ spec:
         resources: {}
       networks:
         - multus:
-            networkName: tailscale/bridge-network
+            networkName: tailscale/localnet
           name: default
       terminationGracePeriodSeconds: 180
       volumes:
         - dataVolume:
-            name: tailscale
+            name: centos-tailscale
           name: rootdisk
         - cloudInitNoCloud:
-            secretRef:
-                name: userdata
-            # userDataSecretRef: my-vm-userdata 
-            # networkData: |-
-            #   version: 2
-            #   ethernets:
-            #     default:
-            #       match:
-            #         name: eth*
-            #       dhcp4: true
-        # - cloudInitNoCloud:
-        #     networkDataSecretRef: 
-        #         name: vm-test
-        #     secretRef: 
-        #         name: vm-test
+            userData: |-
+              #cloud-config
+              user: centos
+              password: 2a72-imgp-pyna
+              chpasswd: { expire: False }
           name: cloudinitdisk
