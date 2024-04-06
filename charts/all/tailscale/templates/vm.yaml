@@ -13,7 +13,6 @@ metadata:
           "min": 1610612736
         }
       ]
-  creationTimestamp: '2024-04-06T06:17:56Z'
   generation: 1
   labels:
     app: centos-tailscale
@@ -89,7 +88,6 @@ metadata:
       time: '2024-04-06T06:17:56Z'
   name: centos-tailscale
   namespace: tailscale
-  uid: 64bebaa2-43b4-4ec8-8be0-86416f1efaa8
 spec:
   dataVolumeTemplates:
     - apiVersion: cdi.kubevirt.io/v1beta1
