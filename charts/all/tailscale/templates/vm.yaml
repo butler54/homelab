@@ -13,6 +13,7 @@ metadata:
           "min": 1610612736
         }
       ]
+  creationTimestamp: '2024-04-06T06:17:56Z'
   generation: 1
   labels:
     app: centos-tailscale
@@ -158,5 +159,7 @@ spec:
         - dataVolume:
             name: centos-tailscale
           name: rootdisk
-                name: userdata
+        - cloudInitNoCloud:
+            secretRef:
+              name: userdata
           name: cloudinitdisk
