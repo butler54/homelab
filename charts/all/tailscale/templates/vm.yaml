@@ -160,10 +160,5 @@ spec:
         - dataVolume:
             name: centos-tailscale
           name: rootdisk
-        - cloudInitNoCloud:
-            userData: |-
-              #cloud-config
-              user: centos
-              password: 2a72-imgp-pyna
-              chpasswd: { expire: False }
+                name: userdata
           name: cloudinitdisk
