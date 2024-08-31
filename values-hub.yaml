@@ -52,12 +52,6 @@ clusterGroup:
       namespace: cert-manager-operator
       channel: stable-v1
 
-  #csv: advanced-cluster-management.v2.6.1
-  # certmanager:
-  #   name: cert-manager
-  #   namespace: cert-manager
-  #   channel: stable
-
   projects:
   - hub
   - config-demo
@@ -65,16 +59,6 @@ clusterGroup:
   - cnv
   - network
   applications:
-    # acm:
-    #   name: acm
-    #   namespace: open-cluster-management
-    #   project: hub
-    #   path: common/acm
-    #   ignoreDifferences:
-    #   - group: internal.open-cluster-management.io
-    #     kind: ManagedClusterInfo
-    #     jsonPointers:
-    #     - /spec/loggingCA
     vault:
       name: vault
       namespace: vault
@@ -86,7 +70,6 @@ clusterGroup:
       namespace: golang-external-secrets
       project: hub
       path: common/golang-external-secrets
-
     cnv:
       name: cnv
       namespace: openshift-cnv
@@ -108,13 +91,6 @@ clusterGroup:
     #   namespace: octoprint
     #   project: octoprint
     #   path: charts/all/octoprint
-
-    hello-world:
-      name: hello-world
-      namespace: hello-world
-      project: hello-world
-      path: charts/all/hello-world
-
     letsencrypt:
       name: letsencrypt
       namespace: letsencrypt
