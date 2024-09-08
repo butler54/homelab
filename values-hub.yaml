@@ -24,7 +24,6 @@ clusterGroup:
   - openshift-nmstate
   - minio
   - minio-operator
-  - homeassistant
 
   subscriptions:
     cnv:
