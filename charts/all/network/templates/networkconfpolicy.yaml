@@ -14,6 +14,6 @@ spec:
       - localnet: tailscale
         bridge: br-ex
         state: present
-      - localnet: homeasstant
+      - localnet: homeassistant
         bridge: br-ex
         state: present
