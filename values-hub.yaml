@@ -24,6 +24,7 @@ clusterGroup:
   - openshift-nmstate
   - minio
   - minio-operator
+  - homeassistant
 
   subscriptions:
     cnv:
@@ -58,6 +59,7 @@ clusterGroup:
   - hello-world
   - cnv
   - network
+  - homeassistant
   applications:
     vault:
       name: vault
@@ -102,6 +104,12 @@ clusterGroup:
       namespace: minio
       project: default
       path: charts/all/minio
+
+    homeassistant:
+      name: homeassistant
+      namespace: homeassistant
+      project: homeassistant
+      path: charts/all/homeassistant
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule

@@ -1,0 +1,7 @@
+apiVersion: v2
+description: A helm chart to provision a vm with home assitant installed
+keywords:
+- pattern
+name: homeassistant
+version: 0.0.1
+#dependencies:
