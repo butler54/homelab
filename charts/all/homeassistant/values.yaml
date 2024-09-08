@@ -8,6 +8,9 @@ sshpubkey:
 userdata:
   key: secret/data/global/cloudinit-userdata
 
+homeassistant:
+  name: homeassistant
+  version: "13.1"
 
 
 ## Run this

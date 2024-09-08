@@ -1,5 +1,5 @@
 apiVersion: v2
-description: A helm chart to provision a vm with home assitant installed
+description: A helm chart to provision a vm with home assistant installed
 keywords:
 - pattern
 name: homeassistant

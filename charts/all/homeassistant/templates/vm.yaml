@@ -1,165 +1,61 @@
-# apiVersion: kubevirt.io/v1
-# kind: VirtualMachine
-# metadata:
-#   annotations:
-#     kubemacpool.io/transaction-timestamp: '2024-04-06T06:17:56.634044826Z'
-#     vm.kubevirt.io/validations: |
-#       [
-#         {
-#           "name": "minimal-required-memory",
-#           "path": "jsonpath::.spec.domain.memory.guest",
-#           "rule": "integer",
-#           "message": "This VM requires more memory.",
-#           "min": 1610612736
-#         }
-#       ]
-#   creationTimestamp: '2024-04-06T06:17:56Z'
-#   generation: 1
-#   labels:
-#     app: centos-tailscale
-#     kubevirt.io/dynamic-credentials-support: 'true'
-#     vm.kubevirt.io/template: centos-stream9-server-small
-#     vm.kubevirt.io/template.namespace: openshift
-#     vm.kubevirt.io/template.revision: '1'
-#     vm.kubevirt.io/template.version: v0.27.0
-#   managedFields:
-#     - apiVersion: kubevirt.io/v1
-#       fieldsType: FieldsV1
-#       fieldsV1:
-#         'f:metadata':
-#           'f:annotations':
-#             .: {}
-#             'f:kubemacpool.io/transaction-timestamp': {}
-#             'f:vm.kubevirt.io/validations': {}
-#           'f:labels':
-#             .: {}
-#             'f:app': {}
-#             'f:kubevirt.io/dynamic-credentials-support': {}
-#             'f:vm.kubevirt.io/template': {}
-#             'f:vm.kubevirt.io/template.namespace': {}
-#             'f:vm.kubevirt.io/template.revision': {}
-#             'f:vm.kubevirt.io/template.version': {}
-#         'f:spec':
-#           .: {}
-#           'f:dataVolumeTemplates': {}
-#           'f:running': {}
-#           'f:template':
-#             .: {}
-#             'f:metadata':
-#               .: {}
-#               'f:annotations':
-#                 .: {}
-#                 'f:vm.kubevirt.io/flavor': {}
-#                 'f:vm.kubevirt.io/os': {}
-#                 'f:vm.kubevirt.io/workload': {}
-#               'f:creationTimestamp': {}
-#               'f:labels':
-#                 .: {}
-#                 'f:kubevirt.io/domain': {}
-#                 'f:kubevirt.io/size': {}
-#             'f:spec':
-#               .: {}
-#               'f:accessCredentials': {}
-#               'f:architecture': {}
-#               'f:domain':
-#                 .: {}
-#                 'f:cpu':
-#                   .: {}
-#                   'f:cores': {}
-#                   'f:sockets': {}
-#                   'f:threads': {}
-#                 'f:devices':
-#                   .: {}
-#                   'f:disks': {}
-#                   'f:interfaces': {}
-#                   'f:networkInterfaceMultiqueue': {}
-#                   'f:rng': {}
-#                 'f:machine':
-#                   .: {}
-#                   'f:type': {}
-#                 'f:memory':
-#                   .: {}
-#                   'f:guest': {}
-#                 'f:resources': {}
-#               'f:networks': {}
-#               'f:terminationGracePeriodSeconds': {}
-#               'f:volumes': {}
-#       manager: kubectl-create
-#       operation: Update
-#       time: '2024-04-06T06:17:56Z'
-#   name: centos-tailscale
-#   namespace: tailscale
-# spec:
-#   dataVolumeTemplates:
-#     - apiVersion: cdi.kubevirt.io/v1beta1
-#       kind: DataVolume
-#       metadata:
-#         creationTimestamp: null
-#         name: centos-tailscale
-#       spec:
-#         sourceRef:
-#           kind: DataSource
-#           name: centos-stream9
-#           namespace: openshift-virtualization-os-images
-#         storage:
-#           resources:
-#             requests:
-#               storage: 30Gi
-#   running: true
-#   template:
-#     metadata:
-#       annotations:
-#         vm.kubevirt.io/flavor: small
-#         vm.kubevirt.io/os: centos-stream9
-#         vm.kubevirt.io/workload: server
-#       creationTimestamp: null
-#       labels:
-#         kubevirt.io/domain: centos-tailscale
-#         kubevirt.io/size: small
-#     spec:
-#       accessCredentials:
-#         - sshPublicKey:
-#             propagationMethod:
-#               noCloud: {}
-#             source:
-#               secret:
-#                 secretName: sshpubkey
-#       architecture: amd64
-#       domain:
-#         cpu:
-#           cores: 2
-#           sockets: 1
-#           threads: 1
-#         devices:
-#           disks:
-#             - disk:
-#                 bus: virtio
-#               name: rootdisk
-#             - disk:
-#                 bus: virtio
-#               name: cloudinitdisk
-#           interfaces:
-#             - bridge: {}
-#               macAddress: '02:ec:14:00:00:0f'
-#               model: virtio
-#               name: default
-#           networkInterfaceMultiqueue: true
-#           rng: {}
-#         machine:
-#           type: pc-q35-rhel9.2.0
-#         memory:
-#           guest: 4Gi
-#         resources: {}
-#       networks:
-#         - multus:
-#             networkName: tailscale/localnet
-#           name: default
-#       terminationGracePeriodSeconds: 180
-#       volumes:
-#         - dataVolume:
-#             name: centos-tailscale
-#           name: rootdisk
-#         - cloudInitNoCloud:
-#             secretRef:
-#               name: userdata
-#           name: cloudinitdisk
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  labels:
+    kubevirt.io/vm: homeassistant
+  name: homeassistant
+spec:
+  dataVolumeTemplates:
+  - metadata:
+      name: homeassistant-dv 
+    spec:
+      storage:
+        resources:
+          requests:
+            storage: 80Gi 
+        storageClassName: lvms-vg1
+      source:
+        http:
+          url: "https://github.com/home-assistant/operating-system/releases/download/{{ .Values.homeassistant.version }}/haos_generic-x86-64-{{ .Values.homeassistant.version }}.img.xz"
+  running: true
+  template:
+    metadata:
+      labels:
+        kubevirt.io/vm: homeassistant
+    spec:
+      architecture: amd64
+      domain:
+        cpu:
+          cores: 2
+          sockets: 1
+          threads: 1
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: homeassistant-disk-1
+          # - disk:
+          #     bus: virtio
+          #   name: cloudinitdisk
+          interfaces:
+            - bridge: {}
+              macAddress: '43:c3:84:60:33:41'
+              model: virtio
+              name: default
+          networkInterfaceMultiqueue: true
+          rng: {}
+        memory:
+          guest: 4Gi
+      networks:
+        - multus:
+            networkName: {{ .Values.homeassistant.name }}/localnet
+          name: default
+      terminationGracePeriodSeconds: 180
+      volumes:
+      - dataVolume:
+          name: homeassistant-dv
+        name: homeassistant-disk-1
+      # - cloudInitNoCloud:
+      #     secretRef:
+      #       name: userdata
+      #   name: cloudinitdisk
