@@ -39,7 +39,7 @@ spec:
           #   name: cloudinitdisk
           interfaces:
             - bridge: {}
-              macAddress: '43:c3:84:60:33:41'
+              macAddress: '02:ec:14:00:01:0f'
               model: virtio
               name: default
           networkInterfaceMultiqueue: true
