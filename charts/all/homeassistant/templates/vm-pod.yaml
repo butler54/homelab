@@ -1,0 +1,51 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  labels:
+    kubevirt.io/vm: homeassistant-pod
+  name: homeassistant-pod
+spec:
+  dataVolumeTemplates:
+  - metadata:
+      name: homeassistant-pod-dv 
+    spec:
+      storage:
+        resources:
+          requests:
+            storage: 80Gi 
+        storageClassName: lvms-vg1
+      source:
+        http:
+          url: "https://github.com/home-assistant/operating-system/releases/download/{{ .Values.homeassistant.version }}/haos_generic-x86-64-{{ .Values.homeassistant.version }}.img.xz"
+  running: true
+  template:
+    metadata:
+      labels:
+        kubevirt.io/vm: homeassistant-pod
+    spec:
+      architecture: amd64
+      domain:
+        cpu:
+          cores: 2
+          sockets: 1
+          threads: 1
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: homeassistant-pod-disk-1
+          # - disk:
+          #     bus: virtio
+          #   name: cloudinitdisk
+          rng: {}
+        memory:
+          guest: 4Gi
+      terminationGracePeriodSeconds: 180
+      volumes:
+      - dataVolume:
+          name: homeassistant-pod-dv
+        name: homeassistant-pod-disk-1
+      # - cloudInitNoCloud:
+      #     secretRef:
+      #       name: userdata
+      #   name: cloudinitdisk
