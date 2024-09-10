@@ -48,7 +48,7 @@ spec:
           guest: 4Gi
       networks:
         - multus:
-            networkName: {{ .Values.homeassistant.name }}/localnet
+            networkName: localnet
           name: default
       terminationGracePeriodSeconds: 180
       volumes:
