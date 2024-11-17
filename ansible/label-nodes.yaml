@@ -1,0 +1,17 @@
+# This playbook is a simple hello-world playbook to show capabilities
+# It creates a config-map inside the imperative namespace containing
+# the helm variable "global.clusterDomain"
+---
+- name: Add label to worker node
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+
+  tasks:
+    - name: Get a list of worker nodes
+      kubernetes.core.k8s_info:
+        kind: Node
+        label_selectors:
+          '': "worker"
+    - name: 
